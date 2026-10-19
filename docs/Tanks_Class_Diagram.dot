@@ -1,0 +1,18 @@
+digraph TanksUML {
+  graph [rankdir=TB, bgcolor="white", pad="0.22", nodesep="0.5", ranksep="0.70", splines=polyline, outputorder=edgesfirst, fontname="DejaVu Sans", label="Tanks Game | Implementation Class Diagram (Stage 9)", labelloc=t, fontsize=20, fontcolor="#18263f"];
+  node [shape=record, style="rounded,filled", fillcolor="#f6f9fd", color="#405672", penwidth=1.5, fontname="DejaVu Sans", fontsize=11, margin="0.16,0.11"];
+  edge [color="#405672", fontname="DejaVu Sans", fontsize=10, penwidth=1.35];
+  PApplet [fillcolor="#e9edf6", label="{Processing PApplet | + settings()\l+ setup()\l+ draw()\l+ keyPressed(...)\l}"];
+  App [fillcolor="#d7e6fb", label="{App | + tanks : List\l+ projectiles : List\l+ trees : List\l+ deathExplosions : List\l+ cumulativeScores : Map\l+ gameOver : boolean\l|+ setup() : void\l+ draw() : void\l+ updateRoundState() : void\l+ updateTankFalls() : void\l+ drawFinalResults() : void\l+ purchaseShield(...) : boolean\l}"];
+  Tanks [label="{App.Tanks [inner] | + name : String\l+ health : int\l+ fuel : int\l+ parachute : int\l+ scores : int\l+ shieldActive : boolean\l+ currentAngle : double\l|+ tankmoveleft() : void\l+ tankmoveright() : void\l+ fire() : void\l+ increasepower() : void\l}"];
+  Projectiles [label="{App.Projectiles [inner] | + player : Tanks\l+ preciseX : double\l+ y : double\l+ vx, vy : double\l+ windAtLaunch : int\l|+ p_position() : void\l}"];
+  DeathExplosion [label="{App.DeathExplosion [inner] | + victim : Tanks\l+ owner : Tanks\l+ radius : int\l+ frame : int\l}"];
+  Tree [label="{App.Tree [inner] | + x : int\l+ y : float\l}"];
+  App -> PApplet [arrowhead=empty, label="extends", weight=5];
+  App -> Tanks [dir=back, arrowtail=diamond, arrowhead=none, taillabel="1", headlabel="0..*", label="contains", minlen=2];
+  App -> Projectiles [dir=back, arrowtail=diamond, arrowhead=none, taillabel="1", headlabel="0..*", label="contains", minlen=2];
+  App -> DeathExplosion [dir=back, arrowtail=diamond, arrowhead=none, taillabel="1", headlabel="0..*", label="contains", minlen=2];
+  App -> Tree [dir=back, arrowtail=diamond, arrowhead=none, taillabel="1", headlabel="0..*", label="contains", minlen=2];
+  Projectiles -> Tanks [style=dashed, label="firing tank (1)"];
+  DeathExplosion -> Tanks [style=dashed, label="victim / owner"];
+}

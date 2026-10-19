@@ -1,0 +1,27 @@
+# Java and Gradle build outputs
+.gradle/
+build/
+**/build/
+*.class
+out/
+
+# Local IDE and OS files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
+
+# Locally generated QA logs / artifacts (tracked verification snapshot lives under docs/)
+/Stage*_Gradle_Log*.txt
+/Stage*_QA_Result*.txt
+/Stage9_Final_Audit.txt
+*.log
+*.hprof
+
+# User-created local media and experimental data
+/screenshots-local/
+/videos-local/

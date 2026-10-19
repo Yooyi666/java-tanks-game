@@ -1,0 +1,12 @@
+﻿TANKS STAGE 9: FINAL QUALITY & JAVA 8 AUDIT
+
+GRADLE: PASS
+JUNIT: 147 tests; failed=0; errors=0; skipped=0
+JUNIT EXPECTED 147/147: PASS
+JACOCO: instruction=96.45%; branch=89.94%; average=93.2%
+JACOCO >90%: PASS
+JAVADOC: PASS
+JAVA 8 BYTECODE: PASS (major=52)
+
+NOTE: major=52 and --release 8 on newer JDKs are build checks, NOT proof of runtime on a Java 8 installation.
+NOTE: Rendering tests are headless and do not compare real pixels.
